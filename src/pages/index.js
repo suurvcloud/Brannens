@@ -1,28 +1,42 @@
-import * as React from "react"
-import { Link } from "gatsby"
-import { StaticImage } from "gatsby-plugin-image"
-
+import React from "react"
 import Layout from "../components/layout"
-import Seo from "../components/seo"
+import SEO from "../components/seo"
+import HomeLogos from '../components/home-logos'
+import Slider from '../components/Slider'
+
+const images = [
+  {
+    original: 'slideshow/slideshow.jpg',
+    thumbnail: 'slideshow/slideshow.jpg',
+  },
+  {
+    original: 'slideshow/slideshow0.jpg',
+    thumbnail: 'slideshow/slideshow0.jpg',
+  },
+  {
+    original: 'slideshow/slideshow2.jpg',
+    thumbnail: 'slideshow/slideshow2.jpg'
+  },
+  {
+    original: 'slideshow/slideshow3.jpg',
+    thumbnail: 'slideshow/slideshow3.jpg'
+  }
+]
 
 const IndexPage = () => (
   <Layout>
-    <Seo title="Home" />
-    <h1>Hi people</h1>
-    <p>Welcome to your new Gatsby site.</p>
-    <p>Now go build something great.</p>
-    <StaticImage
-      src="../images/gatsby-astronaut.png"
-      width={300}
-      quality={95}
-      formats={["AUTO", "WEBP", "AVIF"]}
-      alt="A Gatsby astronaut"
-      style={{ marginBottom: `1.45rem` }}
+    <SEO title="Home"
+      keywords={[
+        `fasteners`,
+        `construction`,
+        `tools`,
+      ]}
     />
-    <p>
-      <Link to="/page-2/">Go to page 2</Link> <br />
-      <Link to="/using-typescript/">Go to "Using TypeScript"</Link>
-    </p>
+    <Slider images={ images } />
+    <h1>Top Products</h1>
+    <div className="page-content">
+      <HomeLogos />
+    </div>
   </Layout>
 )
 
